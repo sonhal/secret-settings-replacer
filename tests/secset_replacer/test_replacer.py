@@ -42,5 +42,5 @@ class TestReplacer(TestCase):
     def test_replace(self):
         rep = Replacer(FileResourceFinder(self.temp_dir.name))
         result =rep.get_filled_dict(self.filecontent)
-        print(result)
+        self.assertEqual(result["data"], self.filename_value_mapping["REPLACE1"])
 
