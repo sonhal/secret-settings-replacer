@@ -3,8 +3,24 @@ from secset_replacer.finder import FileResourceFinder
 from pprint import pprint as pp
 from pathlib import Path
 
+
+
+
 f = open("settings.json", "rt")
 settings_str = f.read()
+# settings_str contains
+"""
+{"data":"${REPLACE1}",
+ "meta":{"sensitivityList": {"id": "quasi",
+                              "name": "quasi",
+                              "personnr": "sensitive"},
+        "dataType":{"id": "int",
+                    "name": "${REPLACE2}"},
+        "hierachy":{"id": "someid",
+          "name": "CSVString"}}
+ }
+
+"""
 
 replacer = Replacer(FileResourceFinder(Path("secrets").absolute()))
 
